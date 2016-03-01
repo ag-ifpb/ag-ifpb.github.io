@@ -23,7 +23,7 @@
         }
 
         function dequeue(){
-          var pjs = Processing.getInstanceById( "canvas1" ),
+          var pjs = Processing.getInstanceById( "canvas" ),
               num = document.getElementById( "numInput" ).value,
               list;
 
@@ -38,16 +38,16 @@
           var removedBox = document.getElementById( "removedBox" );
 
           if( num !== -1 )
-            removedBox.innerHTML = "You removed the Box containing " + num + ".";
+            removedBox.innerHTML = "Você removeu um elemento contendo o número " + num + ".";
           else
-            removedBox.innerHTML = "There are no boxes to remove.";
+            removedBox.innerHTML = "Não existem elementos para remover.";
         }
      
         /* 
           Taken from the Processing Guide posted here: http://processingjs.org/articles/PomaxGuide.html
         */ 
         function bindJavascript() {
-          var pjs = Processing.getInstanceById( "canvas1" );
+          var pjs = Processing.getInstanceById( "canvas" );
 
           if(pjs!=null) {
             pjs.bindJavascript(this);
