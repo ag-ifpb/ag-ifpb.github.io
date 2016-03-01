@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Data Structures and Algorithms animations using Processing.js</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="">
+    <link rel="stylesheet" href="visualizationPageStyle.css">		
+    <script src="processing-1.3.6.min.js"></script>
+    <script type="text/javascript">
+        var bound = false;
+        function enqueue(){
+          var pjs = Processing.getInstanceById("canvas");
+          var num = document.getElementById( "numInput" ).value,
+              removedBox = document.getElementById( "removedBox" );
+
+          if(num >= 0 && !isNaN(num)){
+            pjs.enqueue( num );
+            removedBox.innerHTML = "";
+          }
+          else
+            removedBox.innerHTML = "Entre com um valor numerico inteiro.";
+        }
+
+        function dequeue(){
+          var pjs = Processing.getInstanceById( "canvas1" ),
+              num = document.getElementById( "numInput" ).value,
+              list;
+
+          pjs.dequeue();
+
+          // Get Reference to Arraylist, remove first element
+          list = pjs.getBoxes();
+          list.remove(0);
+        }
+
+        function reportRemovedBox( num ){
+          var removedBox = document.getElementById( "removedBox" );
+
+          if( num !== -1 )
+            removedBox.innerHTML = "You removed the Box containing " + num + ".";
+          else
+            removedBox.innerHTML = "There are no boxes to remove.";
+        }
+     
+        /* 
+          Taken from the Processing Guide posted here: http://processingjs.org/articles/PomaxGuide.html
+        */ 
+        function bindJavascript() {
+          var pjs = Processing.getInstanceById( "canvas1" );
+
+          if(pjs!=null) {
+            pjs.bindJavascript(this);
+            bound = true;
+          }
+          if(!bound) setTimeout(bindJavascript, 250);
+        }
+     
+        bindJavascript();
+    </script>
+</head>
+<body>
+  <div class="post">
+    <h2>Fila com reorganização</h2>
+    <div class="entry">
+        <canvas id="canvas" data-processing-sources="mjschranz-queue.pde" tabindex="0" width="550" height="90"style="image-rendering: -webkit-optimize-contrast !important;"></canvas>
+        <br><br>
+        <input type="text" id="numInput"><button onclick="enqueue()">entrar na fila</button><button onclick="dequeue()">remover da fila</button>
+        <br><br>
+        <div id="removedBox"></div>
+    </div> <!-- entry -->
+  </div>
+</html>
