@@ -33,14 +33,14 @@ var ARRAY_ELEM_HEIGHT = 50;
 var ARRRAY_ELEMS_PER_LINE = 15;
 var ARRAY_LINE_SPACING = 130;
 
-var HEAD_POS_X = 220;
+var HEAD_POS_X = 240;
 var HEAD_POS_Y = 100;
 var HEAD_LABEL_X = 130;
 var HEAD_LABEL_Y =  100;
 
-var TAIL_POS_X = 380;
+var TAIL_POS_X = 500;
 var TAIL_POS_Y = 100;
-var TAIL_LABEL_X = 300;
+var TAIL_LABEL_X = 400;
 var TAIL_LABEL_Y =  100;
 
 var QUEUE_LABEL_X = 50;
@@ -147,10 +147,10 @@ QueueArray.prototype.setup = function()
 		this.cmd("SetForegroundColor", this.arrayLabelID[i], INDEX_COLOR);
 		
 	}
-	this.cmd("CreateLabel", headLabelID, "Primeiro ou cabeça(head)", HEAD_LABEL_X, HEAD_LABEL_Y);
+	this.cmd("CreateLabel", headLabelID, "Ponto de Entrada ou Cabeça (head)", HEAD_LABEL_X, HEAD_LABEL_Y);
 	this.cmd("CreateRectangle", this.headID, 0, ARRAY_ELEM_WIDTH, ARRAY_ELEM_HEIGHT, HEAD_POS_X, HEAD_POS_Y);
 	
-	this.cmd("CreateLabel", tailLabelID, "Último ou calda(tail)", TAIL_LABEL_X, TAIL_LABEL_Y);
+	this.cmd("CreateLabel", tailLabelID, "Ponto de Saída ou calda (tail)", TAIL_LABEL_X, TAIL_LABEL_Y);
 	this.cmd("CreateRectangle", this.tailID, 0, ARRAY_ELEM_WIDTH, ARRAY_ELEM_HEIGHT, TAIL_POS_X, TAIL_POS_Y);
 	
 	
