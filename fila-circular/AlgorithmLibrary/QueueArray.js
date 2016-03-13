@@ -135,6 +135,7 @@ QueueArray.prototype.setup = function()
 	this.arrayData = new Array(SIZE);
 	this.head = 0;
 	this.tail = 0;
+	this.count = 0;
 	this.leftoverLabelID = this.nextIndex++;
 	
 	
@@ -181,12 +182,13 @@ QueueArray.prototype.reset = function()
 		
 QueueArray.prototype.enqueueCallback = function(event)
 {
-	//
-	if ((this.tail + 1) % (SIZE + 1)  != this.head && this.enqueueField.value != "")
+	//(this.tail + 1) % SIZE  != this.head
+	if (count < SIZE && this.enqueueField.value != "")
 	{
 		var pushVal = this.enqueueField.value;
 		this.enqueueField.value = ""
 		this.implementAction(this.enqueue.bind(this), pushVal);
+		this.count++;
 	}
 }
 		
@@ -196,6 +198,7 @@ QueueArray.prototype.dequeueCallback = function(event)
 	if (this.tail != this.head)
 	{
 		this.implementAction(this.dequeue.bind(this), "");
+		this.count--;
 	}
 }
 		
