@@ -181,8 +181,8 @@ QueueArray.prototype.reset = function()
 		
 QueueArray.prototype.enqueueCallback = function(event)
 {
-	//this.tail + 1
-	if ((this.tail) % SIZE  != this.head && this.enqueueField.value != "")
+	//
+	if ((this.tail + 1) % (SIZE + 1)  != this.head && this.enqueueField.value != "")
 	{
 		var pushVal = this.enqueueField.value;
 		this.enqueueField.value = ""
