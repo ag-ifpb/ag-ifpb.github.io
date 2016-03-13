@@ -194,7 +194,8 @@ QueueArray.prototype.enqueueCallback = function(event)
 		
 QueueArray.prototype.dequeueCallback = function(event)
 {
-	if (this.tail != this.head)
+	//this.tail != this.head
+	if (this.count > 0)
 	{
 		this.implementAction(this.dequeue.bind(this), "");
 		this.count--;
