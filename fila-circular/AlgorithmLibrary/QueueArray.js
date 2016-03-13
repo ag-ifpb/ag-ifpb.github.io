@@ -62,7 +62,6 @@ QueueArray.prototype = new Algorithm();
 QueueArray.prototype.constructor = QueueArray;
 QueueArray.superclass = Algorithm.prototype;
 
-
 QueueArray.prototype.init = function(am, w, h)
 {
 	QueueArray.superclass.init.call(this, am, w, h);
@@ -183,7 +182,7 @@ QueueArray.prototype.reset = function()
 QueueArray.prototype.enqueueCallback = function(event)
 {
 	//(this.tail + 1) % SIZE  != this.head
-	if (count < SIZE && this.enqueueField.value != "")
+	if (this.count < SIZE && this.enqueueField.value != "")
 	{
 		var pushVal = this.enqueueField.value;
 		this.enqueueField.value = ""
